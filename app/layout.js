@@ -3,7 +3,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Providers } from "./Providers";
 
+export const metadata = {
+  title: 'KNVB Eredivie',
+  description: 'Major Dutch Football League',
+};
+
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
       <body>
