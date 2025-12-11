@@ -15,19 +15,6 @@ const ClubInfo = () => {
   const { teams } = state;
 
   const [players, setPlayers] = useState([]);
-  // const [showScrollButton, setShowScrollButton] = useState(false);
-
-  // useEffect(() => {
-  //   const handleScrollVisibility = () => {
-  //     if (window.scrollY > 1000) {
-  //       setShowScrollButton(true);
-  //     } else {
-  //       setShowScrollButton(false);
-  //     }
-  //   };
-  //   window.addEventListener("scroll", handleScrollVisibility);
-  //   return () => window.removeEventListener("scroll", handleScrollVisibility);
-  // }, []);
 
   useEffect(() => {
     if (Array.isArray(teams) && teams.length > 0) {
@@ -35,13 +22,6 @@ const ClubInfo = () => {
       setPlayers(squadArrays);
     }
   }, [teams]);
-
-  // const scrollToTop = () => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
-
-  // console.log("S:", shirts);
-  // console.log("T:", teams);
 
   return (
     <div className={styles.infoContainer}>
