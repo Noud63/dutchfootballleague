@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <Head>
+      
         <link rel="icon" href="/favicon.ico" sizes="any" />
-      </Head>
+      
       <body>
         <Header />
         <Providers>{children}</Providers>
