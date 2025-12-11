@@ -5,7 +5,10 @@ import { Providers } from "./Providers";
 
 export const metadata = {
   title: 'KNVB Eredivisie',
-  description: 'KNVB Eredivisie, Major Dutch Football League'
+  description: 'KNVB Eredivisie, Major Dutch Football League',
+  icons: {
+    icon: '/favicon.ico'
+  },
 };
 
 export default function RootLayout({ children }) {
