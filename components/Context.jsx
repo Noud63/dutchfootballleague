@@ -35,7 +35,7 @@ const AllData = ({ children }) => {
         res.json()
       );
 
-      console.log("Res:", response.data);
+      console.log("Res:", response);
 
       let season =
         response.standings.season.startDate.slice(0, 4) +
