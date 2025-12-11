@@ -17,6 +17,7 @@ import Clubs from "./Clubs";
 import Image from "next/image";
 import Link from "next/link";
 import { useGlobalContext } from "./Context";
+import ScrollToTop from "./ScrollToTop";
 
 const Home = () => {
 
@@ -136,6 +137,7 @@ const Home = () => {
             ))}
         </div>
       </div>
+      <ScrollToTop />
     </div>
   );
 };
