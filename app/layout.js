@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Providers } from "./Providers";
 
 export const metadata = {
-  title: 'KNVB Eredivie',
+  title: 'KNVB Eredivisie',
   description: 'Major Dutch Football League',
 };
 
