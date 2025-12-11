@@ -1,7 +1,6 @@
-<h1>KNVB Eredivisie voetbal (Dutch Football league)</h1>
+<h1>KNVB Eredivisie (Major Dutch Football league)</h1>
 
-Front-end: React 18, Sass.<br>
-Back-end: Express NodeJS<br>
+Nextjs 16 application
 REST API https://api.football-data.org<br><br>
 
 
