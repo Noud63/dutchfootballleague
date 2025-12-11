@@ -5,7 +5,7 @@ import { Providers } from "./Providers";
 
 export const metadata = {
   title: 'KNVB Eredivisie',
-  description: 'Major Dutch Football League',
+  description: 'KNVB Eredivisie, Major Dutch Football League'
 };
 
 export default function RootLayout({ children }) {
