@@ -1,0 +1,174 @@
+"use client";
+import React, { useEffect, useContext, useState, useCallback } from "react";
+import AllDataReducer from "../reducers/AllDataReducer";
+import axios from "axios";
+
+const AllApiData = React.createContext();
+
+const initialState = {
+  leftRow: [],
+  rightRow: [],
+  matches: [],
+  matchByDay: [],
+  totalMatches: 0,
+  teams: [],
+};
+
+const AllData = ({ children }) => {
+  const [state, dispatchState] = React.useReducer(AllDataReducer, initialState);
+  const [topScorers, setTopScorers] = useState([]);
+  const [matchDays, setMatchDays] = useState([]);
+  const [currentDay, setCurrentDay] = useState(1); // 1 t/m 34
+  const [matchDay, setMatchDay] = useState([]);
+  const [ranking, setRanking] = useState([]);
+  const [season, setSeason] = useState("");
+  // const [squad, setSquad] = useState([]);
+  // const [teams, setTeams] = useState([]);
+
+  const getData = useCallback(async () => {
+    dispatchState({ type: "DATA_REQUEST" });
+
+    try {
+      const response = await fetch("/api/getFootballData").then((res) =>
+        res.json()
+      );
+
+      console.log("Res:", response.data);
+
+      let season =
+        response.standings.season.startDate.slice(0, 4) +
+        "-" +
+        response.standings.season.endDate.slice(0, 4);
+
+      setSeason(season);
+
+      let topScorers = response.topScorers.scorers;
+      setTopScorers(topScorers);
+
+      let ranking = response.standings.standings[0].table;
+      setRanking(ranking);
+
+      const teams = response.teams.teams;
+
+      for (let team of teams) {
+        team.name = team.name
+          .replace("Rotterdam", "")
+          .replace("'65", "")
+          .replace("Almelo", "")
+          .replace("AFC", "")
+          .replace("Tilburg", "")
+          .replace("SBV", "")
+          .replace("1963", "")
+          .replace("Go Ahead", "GA");
+      }
+
+      for (let club of ranking) {
+        club.team.name = club.team.name
+          .replace("Rotterdam", "")
+          .replace("'65", "")
+          .replace("Almelo", "")
+          .replace("AFC", "")
+          .replace("Tilburg", "")
+          .replace("SBV", "")
+          .replace("1963", "")
+          .replace("Go Ahead", "GA");
+      }
+
+      const matches = response.matches.matches;
+
+      for (let club of matches) {
+        club.homeTeam.name = club.homeTeam.name
+          .replace("Rotterdam", "")
+          .replace("'65", "")
+          .replace("Almelo", "")
+          .replace("AFC", "")
+          .replace("Tilburg", "")
+          .replace("SBV", "")
+          .replace("1963", "")
+          .replace("Go Ahead", "GA");
+
+        club.awayTeam.name = club.awayTeam.name
+          .replace("Rotterdam", "")
+          .replace("'65", "")
+          .replace("Almelo", "")
+          .replace("AFC", "")
+          .replace("Tilburg", "")
+          .replace("SBV", "")
+          .replace("1963", "")
+          .replace("Go Ahead", "GA");
+
+        if (
+          club.score.fullTime.home === null ||
+          club.score.fullTime.away === null
+        ) {
+          club.score.fullTime.home = "?";
+          club.score.fullTime.away = "?";
+        }
+      }
+
+      // Create an array of arrays of objects( matches by gameround) [[{} x 9],  x 34]
+      let byMatchDay = Object.values(
+        matches.reduce((acc, m) => {
+          acc[m.matchday] = acc[m.matchday] || [];
+          acc[m.matchday].push(m);
+          return acc;
+        }, {})
+      );
+
+      const defaultPost = byMatchDay[0];
+      setMatchDays(defaultPost);
+
+      const leftRow = ranking.slice(0, 9);
+      const rightRow = ranking.slice(9, 18);
+      const matchByDay = byMatchDay;
+      const totalMatches = matches.length / leftRow.length;
+      const day = response.standings.season.currentMatchday;
+      setMatchDay(day);
+
+      const data = {
+        leftRow: leftRow,
+        rightRow: rightRow,
+        matches: matches,
+        matchByDay: matchByDay,
+        totalMatches: totalMatches,
+        currentMatchday: day,
+        teams: teams,
+      };
+
+      dispatchState({ type: "DATA_REQUEST_SUCCESS", payload: data });
+    } catch (error) {
+      dispatchState({ type: "DATA_REQUEST_FAIL" });
+      console.error(
+        "No data! Try again or wait for just a minute, maybe your request limit has exceeded."
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
+
+  return (
+    <AllApiData.Provider
+      value={{
+        state,
+        ranking,
+        currentDay,
+        setCurrentDay,
+        setMatchDays,
+        matchDays,
+        matchDay,
+        topScorers,
+        season,
+      }}
+    >
+      {children}
+    </AllApiData.Provider>
+  );
+};
+
+export const useGlobalContext = () => {
+  return useContext(AllApiData);
+};
+
+export { AllApiData, AllData };
