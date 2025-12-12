@@ -5,6 +5,7 @@ import { useGlobalContext } from "./Context";
 import { usePathname } from "next/navigation";
 import MatchInfoModal from "./MatchInfoModal";
 import lastMatchExpired from "../utils/hasLastMatchExpired";
+import Loader from "./Loader";
 
 const Recent = () => {
   const path = usePathname();
@@ -96,7 +97,7 @@ const Recent = () => {
             </div>
           </div>
 
-          {lastGames.map((game) => {
+           {state.loading ? <Loader /> : lastGames.map((game) => {
             const { homeTeam, awayTeam, score, id } = game;
 
             return (
@@ -126,7 +127,7 @@ const Recent = () => {
             </div>
           </div>
 
-          {program.map((game, index) => {
+     {state.loading ? <Loader /> : program.map((game, index) => {
             const { homeTeam, awayTeam, score, id } = game;
 
             return (
