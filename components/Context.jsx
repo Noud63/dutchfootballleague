@@ -61,7 +61,8 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA");
+          .replace("Go Ahead", "GA")
+          .replace("Breda", "");
       }
 
       for (let club of ranking) {
@@ -73,7 +74,8 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA");
+          .replace("Go Ahead", "GA")
+          .replace("Breda", "");
       }
 
       const matches = response.matches.matches;
@@ -87,7 +89,8 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA");
+          .replace("Go Ahead", "GA")
+          .replace("Breda", "");
 
         club.awayTeam.name = club.awayTeam.name
           .replace("Rotterdam", "")
@@ -97,7 +100,8 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA");
+          .replace("Go Ahead", "GA")
+          .replace("Breda", "");
 
         if (
           club.score.fullTime.home === null ||

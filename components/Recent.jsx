@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import MatchInfoModal from "./MatchInfoModal";
 import lastMatchExpired from "../utils/hasLastMatchExpired";
 import Loader from "./Loader";
+import Image from "next/image";
 
 const Recent = () => {
   const path = usePathname();
@@ -137,11 +138,11 @@ const Recent = () => {
                 onClick={() => showMatchInfo(id)}
               >
                 <div className={styles.teams}>
-                  <div className={styles.hometeam}>{homeTeam.name}</div>
+                  <div className={styles.hometeam2}>{homeTeam.name}</div>
                   <div className={styles.scores}>
                     {score.fullTime.home} : {score.fullTime.away}
                   </div>
-                  <div className={styles.awayteam}>{awayTeam.name}</div>
+                  <div className={styles.awayteam2}>{awayTeam.name}</div>
                 </div>
               </div>
             );
