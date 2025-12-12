@@ -6,6 +6,7 @@ import GetStadium from "../utils/getStadium";
 
 const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
   const [match, setMatch] = useState({});
+  const [imgLoaded, setImgLoaded] = useState(false);
 
   useEffect(() => {
     if (!program || !ID) return;
@@ -46,11 +47,13 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
           </div>
 
           <div className={styles.stadionImage}>
+             {!imgLoaded && <div className={styles.skeleton} />}
             <img
               src={stadion[0]?.image}
               alt=""
-              style={{ width: "100%", borderRadius: "3%" }}
-            />
+                onLoad={() => setImgLoaded(true)}
+               className={`${styles.image} ${imgLoaded ? styles.loaded : ""}`}
+            /> 
           </div>
         </div>
       )}
