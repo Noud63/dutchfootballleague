@@ -194,10 +194,13 @@ background: white;
   width: 128px;
   height: 128px;
   border-radius: 50%;
+  padding: 10px;
+  background: #fff;
 }
 
 .shirtThuis {
   margin-right: .8em;
+  border-radius: 50%;
 }
 
 .uitthuis {

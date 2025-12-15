@@ -88,7 +88,7 @@ const ClubInfo = () => {
                           <div className={styles.shirtUitThuis}>
                             <div className={styles.shirtThuis}>
                               <img
-                                src={`../images/shirts/${shirt.thuis}`}
+                                src={`/shirts/${shirt.thuis}`}
                                 alt=""
                                 className={styles.shirt}
                               />
@@ -96,7 +96,7 @@ const ClubInfo = () => {
                             </div>
                             <div className={styles.shirtUit}>
                               <img
-                                src={`../images/shirts/${shirt.uit}`}
+                                src={`/shirts/${shirt.uit}`}
                                 alt=""
                                 className={styles.shirt}
                               />

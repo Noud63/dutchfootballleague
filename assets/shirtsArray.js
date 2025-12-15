@@ -1,6 +1,6 @@
 const shirts = [
   { id: 1919, uit: "volendam_uit.jpg", thuis: "volendam_thuis.jpg" },
-  { id: 678, uit: "ajax-uit.jpg", thuis: "ajax-thuis.jpg" },
+  { id: 678, uit: "ajax_uit.jpg", thuis: "ajax_thuis.jpg" },
   { id: 682, uit: "az_uit.jpg", thuis: "az_thuis.jpg" },
   { id: 718, uit: "eagles_uit.jpg", thuis: "eagles_thuis.jpg" },
   { id: 670, uit: "excelsior_uit.jpg", thuis: "excelsior_thuis.jpg" },
