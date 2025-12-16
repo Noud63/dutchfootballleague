@@ -22,8 +22,6 @@ const AllData = ({ children }) => {
   const [matchDay, setMatchDay] = useState([]);
   const [ranking, setRanking] = useState([]);
   const [season, setSeason] = useState("");
-  // const [squad, setSquad] = useState([]);
-  // const [teams, setTeams] = useState([]);
 
   const getData = useCallback(async () => {
     dispatchState({ type: "DATA_REQUEST" });
@@ -31,7 +29,7 @@ const AllData = ({ children }) => {
     try {
 
       //if deployed: "https://dutchfootballleague.vercel.app/api/getFootballData"
-      const response = await fetch("https://dutchfootballleague.vercel.app/api/getFootballData").then((res) =>
+      const response = await fetch("/api/getFootballData").then((res) =>
         res.json()
       );
 
