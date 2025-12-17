@@ -179,15 +179,22 @@ background: white;
 .shirtsWrapper {
   width: 100%;
   padding-right: .8em;
-
+  
 }
 
-.shirtUitThuis {
+.coachShirts {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   
+}
+
+.shirtsUitEnThuis {
+   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
 }
 
 .shirt {
@@ -196,6 +203,18 @@ background: white;
   border-radius: 50%;
   padding: 10px;
   background: #fff;
+  border: 2px solid rgb(101, 147, 216);
+}
+
+.coach {
+  margin-left: .8em;
+  border-radius: 50%;
+}
+
+.coachImg {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
   border: 2px solid rgb(101, 147, 216);
 }
 
@@ -249,7 +268,7 @@ background: white;
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 750px) {
   .infoAndShirts {
     flex-direction: column;
     margin: .4em 0 1.4em 0;
@@ -268,11 +287,20 @@ background: white;
     display: flex;
     margin-bottom: 1.4em;
   }
+  .coachShirts {
+    padding-top: 1.4em;
+  }
 }
 
 @media only screen and (max-width: 800px) {
   .spacer {
     height: 150px;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .coachShirts {
+    flex-direction: column;
   }
 }
 
