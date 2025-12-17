@@ -184,7 +184,6 @@ background: white;
 
 .coachShirts {
   display: flex;
-  align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   
@@ -276,10 +275,6 @@ background: white;
   .shirtsWrapper {
     padding: 0 .8em;
   }
-  .shirtUitThuis {
-    width: 100%;
-    justify-content: space-between;
-  }
   .shirtThuis {
     margin-right: .8em;
   }
@@ -301,6 +296,15 @@ background: white;
 @media only screen and (max-width: 470px) {
   .coachShirts {
     flex-direction: column;
+  }
+  .coach {
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 128px;
+    /* align-items: center; */
+    justify-content: center;
+    margin-top: 1em;
   }
 }
 

@@ -27,11 +27,10 @@ const AllData = ({ children }) => {
     dispatchState({ type: "DATA_REQUEST" });
 
     try {
-
       //if deployed: "https://dutchfootballleague.vercel.app/api/getFootballData"
-      const response = await fetch("https://dutchfootballleague.vercel.app/api/getFootballData").then((res) =>
-        res.json()
-      );
+      const response = await fetch(
+        "https://dutchfootballleague.vercel.app/api/getFootballData"
+      ).then((res) => res.json());
 
       console.log("Res:", response);
 
