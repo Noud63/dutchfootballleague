@@ -1,7 +1,7 @@
 import stadions from "../data/stadions.json"
 
 const GetStadium = (ID) => {
-    const stadion = stadions.filter((stad) => stad.id === ID)
+    const stadion = stadions.filter((stadion) => stadion.id === ID)
     return stadion
 }
 
