@@ -33,7 +33,7 @@ export async function GET() {
       status: 200,
     });
   } catch (error) {
-    console.error("Football API Error:", error);
+    console.error("Football API Error:", JSON.stringify(error.message));
 
     return new Response(
       JSON.stringify({ error: "Failed to fetch football data" }),

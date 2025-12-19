@@ -27,7 +27,7 @@ const AllData = ({ children }) => {
     dispatchState({ type: "DATA_REQUEST" });
 
     try {
-      //if deployed: " "
+      //if deployed: "https://dutchfootballleague.vercel.app"
       const response = await fetch(
         "https://dutchfootballleague.vercel.app/api/getFootballData"
       ).then((res) => res.json());
