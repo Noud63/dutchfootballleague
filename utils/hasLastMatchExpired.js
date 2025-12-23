@@ -8,7 +8,7 @@ const lastMatchExpired = (day, matchdays) => {
     const lastDate = new Date(lastMatch.utcDate);
     const now = new Date();
 
-    console.log(now >= lastDate)
+    // console.log(now >= lastDate)
 
     return now >= lastDate;             // match is in the past
   };

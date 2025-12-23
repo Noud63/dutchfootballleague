@@ -33,6 +33,7 @@ const Home = () => {
           height={0}
           className={styles.schaalPic}
           alt="goal"
+          priority
         />
         <Image
           src={goal3_small}
