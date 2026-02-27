@@ -5,10 +5,10 @@ import abe from "../images/abelenstra.jpg";
 import faas from "../images/fasswilkes.jpg";
 import johan from "../images/johancruijff.jpg";
 import marco from "../images/marcovanbasten.jpg";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 const History = () => {
-  const path = useLocation().pathname;
+  const path = usePathname();
   return (
     <div className={styles.historyWrapper}>
       {path === "/history" && <div className={styles.spacerHistory}></div>}
