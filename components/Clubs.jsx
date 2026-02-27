@@ -1,4 +1,3 @@
-"use client"
 import React from "react";
 import styles from "../styles/Clubs.module.css";
 import { useGlobalContext } from "./Context";

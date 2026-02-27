@@ -14,10 +14,10 @@ import Stand from "./Stand";
 import Recent from "./Recent";
 import styles from "../styles/Home.module.css";
 import Clubs from "./Clubs";
-import Image from "next/image";
 import Link from "next/link";
 import { useGlobalContext } from "./Context";
 import ScrollToTop from "./ScrollToTop";
+import Image from "next/image";
 
 const Home = () => {
 
@@ -29,22 +29,24 @@ const Home = () => {
       <div className={styles.schaal}>
         <Image
           src={goal3}
-          width={0}
-          height={0}
+          
           className={styles.schaalPic}
           alt="goal"
-          priority
         />
         <Image
           src={goal3_small}
-          width={0}
-          height={0}
+          
           className={styles.schaalPic_small}
           alt="schaal"
         />
         <div className={styles.ere65}>
-          <Image src={eredivisie65} width={0}
-          height={0} alt="" className={styles.eredivisie65} />
+          <Image
+            src={eredivisie65}
+            width={0}
+            height={0}
+            alt=""
+            className={styles.eredivisie65}
+          />
         </div>
         <div className={styles.history}>
           Het ontstaan van de Eredivisie gaat ver terug in de tijd. De voorloper
@@ -85,10 +87,8 @@ const Home = () => {
       </div>
 
       <div className={styles.borderMarker2}>
-        <Image src={goal} width={0}
-          height={0} className={styles.ballInGoal} alt="" />
-        <Image src={goal_small} width={0}
-          height={0} className={styles.ballInGoal_small} alt="" />
+        <Image src={goal}  className={styles.ballInGoal} alt="" />
+        <Image src={goal_small}  className={styles.ballInGoal_small} alt="" />
       </div>
 
       <div className={styles.stand}>
@@ -96,10 +96,8 @@ const Home = () => {
       </div>
 
       <div className={styles.borderMarker}>
-        <Image src={goal4} width={0}
-          height={0} className={styles.ballInGoal} alt="" />
-        <Image src={goal4_small} width={0}
-          height={0} className={styles.ballInGoal_small} alt="" />
+        <Image src={goal4}  className={styles.ballInGoal} alt="" />
+        <Image src={goal4_small}  className={styles.ballInGoal_small} alt="" />
       </div>
 
       <div className={styles.allmatches}>
@@ -107,10 +105,8 @@ const Home = () => {
       </div>
 
       <div className={styles.borderMarker}>
-        <Image src={goal2} width={0}
-          height={0} className={styles.ballInGoal} alt="" />
-        <Image src={goal2_small} width={0}
-          height={0} className={styles.ballInGoal_small} alt="" />
+        <Image src={goal2}  className={styles.ballInGoal} alt="" />
+        <Image src={goal2_small}  className={styles.ballInGoal_small} alt="" />
       </div>
 
       <Clubs />
@@ -125,7 +121,7 @@ const Home = () => {
                   <Image
                     src={scorer.team.crest}
                     width={100}
-                    height={0}
+                    height={100}
                     alt=""
                     style={{ width: "30px", height: "30px" }}
                   />

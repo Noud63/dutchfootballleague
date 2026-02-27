@@ -1,9 +1,9 @@
 "useClient";
 import React from "react";
-//import { useWindowWidth } from 'react-window-size-hooks';
+import logo from "../images/eredivisie_logo.png"
 import styles from "../styles/Footer.module.css";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -12,12 +12,11 @@ const Footer = () => {
         <div className={styles.footerTitleWrapper}>
           <div>
             <Image
-              src="/home/eredivisielogo_blue.png"
-              width={100}
-              height={0}
-              alt="Eredivisie Logo"
-              className={styles.logo}
-            />
+  src={logo}
+  alt="Eredivisie Logo"
+  className={styles.logo}
+  priority
+/>
           </div>
           <div>KNVB Eredivisie 2025-2026</div>
         </div>

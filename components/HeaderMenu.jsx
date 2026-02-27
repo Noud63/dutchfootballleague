@@ -1,33 +1,37 @@
-import React from 'react'
-import Link from 'next/link'
 import styles from '../styles/HeaderMenu.module.css'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+
+const links = [
+  { href: "/", label: "Home", exact: true },
+  { href: "/uitslagen", label: "Wedstrijden" },
+  { href: "/recent", label: "Recent" },
+  { href: "/stand", label: "Stand" },
+  { href: "/clubinfo", label: "Clubs" },
+];
 
 const HeaderMenu = () => {
+  const pathname = usePathname();
+
   return (
     <div className={styles.links}>
-    
-                    <Link href="/" className={styles.link}>
-                        <div>Home</div>
-                     </Link>
-    
-                    <Link href="/uitslagen" className={styles.link}>
-                        <div >Wedstrijden</div>
-                    </Link>
-    
-                    <Link href="/recent" className={styles.link}> 
-                        <div >Recent</div>
-                    </Link>
-    
-                    <Link href='/stand' className={styles.link}>
-                        <div >Stand</div>
-                    </Link>
-                    <Link href='/clubinfo' className={styles.link}>
-                        <div >Clubs</div>
-                    </Link>
-    
-    
-                </div>
-  )
-}
+      {links.map((link) => {
+        const isActive = link.exact
+          ? pathname === link.href
+          : pathname.startsWith(link.href);
 
-export default HeaderMenu
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            className={`${styles.link} ${isActive ? styles.active : ""}`}
+          >
+            <div>{link.label}</div>
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
+
+export default HeaderMenu;

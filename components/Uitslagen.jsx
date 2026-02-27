@@ -1,3 +1,4 @@
+
 "use client"
 import { useGlobalContext } from './Context'
 import Loader from './Loader';
@@ -8,7 +9,9 @@ import { usePathname } from 'next/navigation';
 const Uitslagen = () => {
 
     const { state, currentDay, matchDays, setCurrentDay, setMatchDays } = useGlobalContext()
+
     const path = usePathname();
+
 
     return (
 

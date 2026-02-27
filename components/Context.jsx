@@ -1,4 +1,5 @@
-"use client";
+
+"use client"
 import React, { useEffect, useContext, useState, useCallback } from "react";
 import AllDataReducer from "../reducers/AllDataReducer";
 import axios from "axios";
@@ -11,7 +12,7 @@ const initialState = {
   matches: [],
   matchByDay: [],
   totalMatches: 0,
-  teams: [],
+  teams: []
 };
 
 const AllData = ({ children }) => {
@@ -23,31 +24,31 @@ const AllData = ({ children }) => {
   const [ranking, setRanking] = useState([]);
   const [season, setSeason] = useState("");
 
+
   const getData = useCallback(async () => {
     dispatchState({ type: "DATA_REQUEST" });
 
     try {
-      //if deployed: "https://dutchfootballleague.vercel.app"
-      const response = await fetch(
-        "/api/getFootballData"
-      ).then((res) => res.json());
+      const response = await axios.get(
+        "https://eredivisie-backend.vercel.app/api/footballData"
+      );
 
-      // console.log("Res:", response);
+      // console.log("Res:", response.data.teams.teams);
 
       let season =
-        response.standings.season.startDate.slice(0, 4) +
+        response.data.standings.season.startDate.slice(0, 4) +
         "-" +
-        response.standings.season.endDate.slice(0, 4);
+        response.data.standings.season.endDate.slice(0, 4);
 
       setSeason(season);
 
-      let topScorers = response.topScorers.scorers;
+      let topScorers = response.data.topScorers.scorers;
       setTopScorers(topScorers);
 
-      let ranking = response.standings.standings[0].table;
+      let ranking = response.data.standings.standings[0].table;
       setRanking(ranking);
 
-      const teams = response.teams.teams;
+      const teams = response.data.teams.teams;
 
       for (let team of teams) {
         team.name = team.name
@@ -58,8 +59,7 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA")
-          .replace("Breda", "");
+          .replace("Go Ahead", "GA");
       }
 
       for (let club of ranking) {
@@ -71,11 +71,10 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA")
-          .replace("Breda", "");
+          .replace("Go Ahead", "GA");
       }
 
-      const matches = response.matches.matches;
+      const matches = response.data.matches.matches;
 
       for (let club of matches) {
         club.homeTeam.name = club.homeTeam.name
@@ -86,8 +85,7 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA")
-          .replace("Breda", "");
+          .replace("Go Ahead", "GA");
 
         club.awayTeam.name = club.awayTeam.name
           .replace("Rotterdam", "")
@@ -97,8 +95,7 @@ const AllData = ({ children }) => {
           .replace("Tilburg", "")
           .replace("SBV", "")
           .replace("1963", "")
-          .replace("Go Ahead", "GA")
-          .replace("Breda", "");
+          .replace("Go Ahead", "GA");
 
         if (
           club.score.fullTime.home === null ||
@@ -125,7 +122,7 @@ const AllData = ({ children }) => {
       const rightRow = ranking.slice(9, 18);
       const matchByDay = byMatchDay;
       const totalMatches = matches.length / leftRow.length;
-      const day = response.standings.season.currentMatchday;
+      const day = response.data.standings.season.currentMatchday;
       setMatchDay(day);
 
       const data = {
@@ -135,7 +132,7 @@ const AllData = ({ children }) => {
         matchByDay: matchByDay,
         totalMatches: totalMatches,
         currentMatchday: day,
-        teams: teams,
+        teams: teams
       };
 
       dispatchState({ type: "DATA_REQUEST_SUCCESS", payload: data });
@@ -151,6 +148,7 @@ const AllData = ({ children }) => {
     getData();
   }, [getData]);
 
+
   return (
     <AllApiData.Provider
       value={{
@@ -162,7 +160,7 @@ const AllData = ({ children }) => {
         matchDays,
         matchDay,
         topScorers,
-        season,
+        season
       }}
     >
       {children}

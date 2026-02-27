@@ -10,18 +10,57 @@
   width: 100%;
   margin: 0 auto;
   max-width: 2000px;
-  /* background: #00121f; */
   background: linear-gradient(
     90deg,
     rgba(0, 18, 31, 1) 0%,
     rgba(36, 79, 143, 1) 50%,
     rgba(0, 18, 31, 1) 100%
   );
-  height: 160px;
-  box-shadow: 0px 0px 10px black;
+  box-shadow: 0px 0px 12px black;
   z-index: 5;
-  border-bottom: 2px solid rgb(196, 160, 0);
   transition: top 0.5s;
+}
+
+.gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 18, 31, 1) 0%,
+    rgba(36, 79, 143, 0) 50%,
+    rgba(0, 18, 31, 1) 100%
+  );
+}
+
+.redwhiteandblue {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 12px;
+  margin-bottom: 19px;
+  box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+}
+
+.red {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(204, 0, 0);
+}
+.white {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+}
+.blue {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(73, 130, 216);
 }
 
 .scrolled {
@@ -29,47 +68,81 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .header {
-    height: 130px;
-  }
   .scrolled {
     top: -130px;
   }
 }
 
-@media only screen and (max-width: 400px) {
-  .header {
-    height: 100px;
-  }
-  .scrolled {
-    top: -100px;
-  }
-}
 
 .eredivisie {
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: row;
   width: 100%;
-  height: 7rem;
+  height: 3.4rem;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
     Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: calc(24px + (44 - 24) * ((100vw - 320px) / (1920 - 320)));
   font-weight: bold;
-  /* background-color: rgb(36, 79, 143); */
-  /* border: 1px solid red; */
+  color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+}
+
+.eredivisieText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  
+}
+
+.banner {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  height: 0.75em;
-  width: 0.75em;
-  margin-top: 4px;
-  margin-right: 10px;
+  height: 45px;
+  width: auto;
+}
+
+.knvb {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .logo {
+    height: 30px;
+  }
+  .knvb {
+    height: 35px;
+  }
+  .redwhiteandblue {
+    margin-bottom: 5px;
+  }
+  .eredivisie {
+    margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .banner {
+    display: none;
+  }
+  .eredivisie {
+    justify-content: center;
+  }
 }
 
 .vlag {
@@ -104,6 +177,13 @@
   transition: all 0.5s ease-in-out;
 }
 
+@media only screen and (max-width: 430px) {
+  .eredivisie {
+    font-size: clamp(24px, 7vw, 48px);
+  }
+
+}
+
 @media only screen and (max-width: 400px) {
   .links,
   .link {
@@ -112,6 +192,26 @@
   .logo {
     display: none;
   }
+  .header {
+    height: 100px;
+  }
+  .scrolled {
+    top: -100px;
+  }
+  .red {
+    height: 3px;
+  }
+  .white {
+    height: 3px;
+  }
+  .blue {
+    height: 3px;
+  }
+
+  .redwhiteandblue {
+    height: 9px;
+  }
+
 }
 
 .link:hover {
@@ -121,3 +221,4 @@
 .active {
   background-color: rgb(72, 117, 184);
 }
+
