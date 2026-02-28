@@ -6,6 +6,7 @@ import faas from "../images/fasswilkes.jpg";
 import johan from "../images/johancruijff.jpg";
 import marco from "../images/marcovanbasten.jpg";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 const History = () => {
   const path = usePathname();
@@ -122,7 +123,7 @@ const History = () => {
 
         <div className={styles.gallerij}>
           <div className={styles.speler}>
-            <img
+            <Image
               src={abe}
              
               alt="abe"
@@ -131,7 +132,7 @@ const History = () => {
             <div className={styles.spelerNaam}>Abe Lenstra</div>
           </div>
           <div className={styles.speler}>
-            <img
+            <Image
               src={faas}
               
               alt="faas"
@@ -140,7 +141,7 @@ const History = () => {
             <div className={styles.spelerNaam}>Faas Wilkes</div>
           </div>
           <div className={styles.speler}>
-            <img
+            <Image
               src={johan}
               
               alt="johan"
@@ -149,7 +150,7 @@ const History = () => {
             <div className={styles.spelerNaam}>Johan Cruijff</div>
           </div>
           <div className={styles.speler}>
-            <img
+            <Image
               src={marco}
               
               alt="marco"
