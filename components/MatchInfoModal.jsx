@@ -18,6 +18,7 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
   const day = DateFormatter(match?.utcDate);
 
   const stadion = GetStadium(match?.homeTeam?.id); // [{...}]
+  console.log("Stadio:", stadion)
 
   return (
     <div className={styles.modal} onClick={showMatchInfo}>
@@ -45,6 +46,8 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
             <div className={styles.stadion}>{stadion[0]?.stadion}</div>-
             <div className={styles.stadion}>{stadion[0]?.city}</div>
           </div>
+
+          <div className={styles.capacity}>Capaciteit: {stadion[0]?.capacity}</div>
 
           <div className={styles.stadionImage}>
              {!imgLoaded && <div className={styles.skeleton} />}

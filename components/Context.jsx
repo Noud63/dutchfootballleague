@@ -33,7 +33,7 @@ const AllData = ({ children }) => {
         "https://eredivisie-backend.vercel.app/api/footballData"
       );
 
-      // console.log("Res:", response.data.teams.teams);
+      console.log("Res:", response.data.teams.teams);
 
       let season =
         response.data.standings.season.startDate.slice(0, 4) +
