@@ -134,5 +134,13 @@
     "city": "Leeuwarden",
     "capacity": 15000,
     "image": "/images/kooi.jpg"
+  },
+  {
+    "id": 680,
+    "club": "ADO Den Haag",
+    "stadion": "WerkTalent Stadion",
+    "city": "Den Haag",
+    "capacity": 15000,
+    "image": "/images/werktalent.jpg"
   }
 ]
