@@ -21,6 +21,11 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
   () => GetStadium(match?.homeTeam?.id),
   [match?.homeTeam?.id]
 );
+
+useEffect(() => {
+  setImgLoaded(false);
+}, [stadion?.[0]?.image]);
+
   console.log("Stadion:", stadion?.[0]?.image)
 
   return (
