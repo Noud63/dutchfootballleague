@@ -54,7 +54,7 @@ const AllData = ({ children }) => {
         team.name = team.name
           .replace("Rotterdam", "")
           .replace("'65", "")
-          .replace("Almelo", "")
+          .replace("-Leeuwarden", "")
           .replace("AFC", "")
           .replace("Tilburg", "")
           .replace("SBV", "")
@@ -66,7 +66,7 @@ const AllData = ({ children }) => {
         club.team.name = club.team.name
           .replace("Rotterdam", "")
           .replace("'65", "")
-          .replace("Almelo", "")
+          .replace("-Leeuwarden", "")
           .replace("AFC", "")
           .replace("Tilburg", "")
           .replace("SBV", "")
@@ -80,7 +80,7 @@ const AllData = ({ children }) => {
         club.homeTeam.name = club.homeTeam.name
           .replace("Rotterdam", "")
           .replace("'65", "")
-          .replace("Almelo", "")
+          .replace("-Leeuwarden", "")
           .replace("AFC", "")
           .replace("Tilburg", "")
           .replace("SBV", "")
@@ -90,7 +90,7 @@ const AllData = ({ children }) => {
         club.awayTeam.name = club.awayTeam.name
           .replace("Rotterdam", "")
           .replace("'65", "")
-          .replace("Almelo", "")
+          .replace("-Leeuwarden", "")
           .replace("AFC", "")
           .replace("Tilburg", "")
           .replace("SBV", "")
