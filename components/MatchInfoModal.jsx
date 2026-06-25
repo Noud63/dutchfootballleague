@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import styles from "../styles/Recent.module.css";
 import DateFormatter from "../utils/dateFormatter";
 import GetStadium from "../utils/getStadium";
@@ -17,8 +17,11 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
 
   const day = DateFormatter(match?.utcDate);
 
-  const stadion = GetStadium(match?.homeTeam?.id); // [{...}]
-  console.log("Stadio:", stadion)
+  const stadion = useMemo(
+  () => GetStadium(match?.homeTeam?.id),
+  [match?.homeTeam?.id]
+);
+  console.log("Stadion:", stadion?.[0]?.image)
 
   return (
     <div className={styles.modal} onClick={showMatchInfo}>
@@ -49,7 +52,7 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
 
           <div className={styles.capacity}>Capaciteit: {stadion[0]?.capacity}</div>
 
-          <div className={styles.stadionImage}>
+          {stadion?.[0]?.image && <div className={styles.stadionImage}>
              {!imgLoaded && <div className={styles.skeleton} />}
             <img
               src={stadion[0]?.image}
@@ -57,7 +60,7 @@ const MatchInfoModal = ({ showMatchInfo, program, ID }) => {
                 onLoad={() => setImgLoaded(true)}
                className={`${styles.image} ${imgLoaded ? styles.loaded : ""}`}
             /> 
-          </div>
+          </div>}
         </div>
       )}
     </div>
