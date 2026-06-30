@@ -110,6 +110,13 @@ const ClubInfo = () => {
 
                 <div className={styles.allPlayers}>
                   <div className={styles.selectie}>Spelers selectie: </div>
+                  {players && players?.[index] && (
+                    <div
+                      style={{ width: "100%", color: "white", height: "50px", fontSize:"16px", fontFamily:"Arial", paddingLeft: "15px"}}
+                    >
+                      Squad coming soon!
+                    </div>
+                  )}
                   <div className={styles.teamSelectionWrapper}>
                     <div className={styles.teamSelection}>
                       {players[index]?.map((player) => (
