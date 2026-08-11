@@ -8,10 +8,13 @@ import position from "../utils/positionTranslation";
 import nationality from "../utils/nationalityTranslation";
 import ScrollToTop from "./ScrollToTop";
 import Loader from "./Loader";
+import shirtsArray from "../data/shirtsArray";
 
 const ClubInfo = () => {
   const { state } = useGlobalContext();
   const { teams } = state;
+
+  console.log("teams:", teams); 
 
   const [players, setPlayers] = useState([]);
 
@@ -60,7 +63,7 @@ const ClubInfo = () => {
                     <div className={styles.infoProp}>
                       <span className={styles.teamLabel}>Coach : </span>
                       <span className={styles.teamName}>
-                        {team.coach.firstName} {team.coach.lastName}
+                       {shirtsArray.find((shirt) => shirt.id === team.id)?.naam || "Onbekend"}
                       </span>
                     </div>
                     <div className={styles.infoProp}>
