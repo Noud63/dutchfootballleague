@@ -5,10 +5,13 @@ import HeaderMenu from './HeaderMenu';
 import logo from '../images/eredivisie_logo.png'
 import knvb from '../images/knvb_logo.png'
 import Image from 'next/image';
+import { useGlobalContext } from './Context';
 
 const Header = () => {
 
     const [scrolled, setScrolled] = React.useState(true);
+
+    const { season } = useGlobalContext();
 
     const handleScroll = () => {
         const offset = window.scrollY;
@@ -40,7 +43,7 @@ const Header = () => {
 /></div>
                 <div className={styles.eredivisieText}>
                     
-                KNVB Eredivisie 2025-2026
+                KNVB Eredivisie {season ? season : "Loading..."}
                 </div>
                 
                         <div className={styles.banner}><Image

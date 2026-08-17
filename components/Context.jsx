@@ -33,7 +33,7 @@ const AllData = ({ children }) => {
         "/api/getFootballData"
       );
 
-      console.log("Res:", response.data.teams.teams);
+      console.log("Res:", response.data);
 
       let season =
         response.data.standings.season.startDate.slice(0, 4) +
