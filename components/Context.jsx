@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import React, { useEffect, useContext, useState, useCallback } from "react";
 import AllDataReducer from "../reducers/AllDataReducer";
 import axios from "axios";
@@ -12,7 +11,7 @@ const initialState = {
   matches: [],
   matchByDay: [],
   totalMatches: 0,
-  teams: []
+  teams: [],
 };
 
 const AllData = ({ children }) => {
@@ -24,14 +23,11 @@ const AllData = ({ children }) => {
   const [ranking, setRanking] = useState([]);
   const [season, setSeason] = useState("");
 
-
   const getData = useCallback(async () => {
     dispatchState({ type: "DATA_REQUEST" });
 
     try {
-      const response = await axios.get(
-        "/api/getFootballData"
-      );
+      const response = await axios.get("/api/getFootballData");
 
       console.log("Res:", response.data);
 
@@ -112,7 +108,7 @@ const AllData = ({ children }) => {
           acc[m.matchday] = acc[m.matchday] || [];
           acc[m.matchday].push(m);
           return acc;
-        }, {})
+        }, {}),
       );
 
       const defaultPost = byMatchDay[0];
@@ -132,14 +128,14 @@ const AllData = ({ children }) => {
         matchByDay: matchByDay,
         totalMatches: totalMatches,
         currentMatchday: day,
-        teams: teams
+        teams: teams,
       };
 
       dispatchState({ type: "DATA_REQUEST_SUCCESS", payload: data });
     } catch (error) {
       dispatchState({ type: "DATA_REQUEST_FAIL" });
       console.error(
-        "No data! Try again or wait for just a minute, maybe your request limit has exceeded."
+        "No data! Try again or wait for just a minute, maybe your request limit has exceeded.",
       );
     }
   }, []);
@@ -147,7 +143,6 @@ const AllData = ({ children }) => {
   useEffect(() => {
     getData();
   }, [getData]);
-
 
   return (
     <AllApiData.Provider
@@ -160,7 +155,7 @@ const AllData = ({ children }) => {
         matchDays,
         matchDay,
         topScorers,
-        season
+        season,
       }}
     >
       {children}

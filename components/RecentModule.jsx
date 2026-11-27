@@ -4,6 +4,7 @@ import styles from "../styles/Recent.module.css";
 import { useGlobalContext } from "./Context";
 import { usePathname } from "next/navigation";
 import lastMatchExpired from "../utils/hasLastMatchExpired";
+import MatchInfoModal from "./MatchInfoModal";
 import Loader from "./Loader";
 
 const RecentModule = () => {
