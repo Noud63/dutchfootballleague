@@ -46,7 +46,7 @@
   width: 100%;
   display: block;
   max-width: 2000px;
-  margin: 6% auto;
+  margin: 0 auto;
   line-height: 0;
   height: auto;
 }
@@ -76,9 +76,11 @@
 .borderMarker2 {
   width: 100%;
   max-width: 2000px;
-  margin: 4% auto;
-  height: auto;
+  line-height: 0;
+  /* border-top: 1px solid white;
+  border-bottom: 1px solid white; */
 }
+
 
 .schaal {
   position: relative;
@@ -130,28 +132,22 @@
 
 .history2 {
   display: none;
-  padding: 20px;
-  margin: 0 auto;
-  margin-top: 4%;
-  margin-bottom: 4%;
-  max-width: 1140px;
+  width: 100%;
+  top: 50%;
+  left: 10%;
+  padding-left: 4%;
+  transform: translate(-10%, -50%);
+  position: absolute;
   color: white;
   line-height: 1.5;
-  font-size: 1.2rem;
+  font-size: calc(12px + (18 - 12) * ((100vw - 320px) / (1920 - 320)));
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.historyText {
-  width: 100%;
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-  padding: 20px 0 30px 0;
-  /* font-size: 16px; */
+  text-shadow: 0px 0px 2px black;
 }
 
 .leeshiermeer {
-  color: rgb(255, 208, 0);
+  color: rgb(255, 187, 0);
   cursor: pointer;
   text-decoration: underline;
 }
@@ -168,25 +164,25 @@
   }
   .history2 {
     display: flex;
-    font-size: 1rem;
+    font-size: .7rem;
+  }
+  .stukje {
+    font-size: .9rem;
   }
 }
 
 @media only screen and (max-width: 500px) {
   .history2 {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
   }
   .stukje {
-    font-size: 1.2rem;
+    font-size: .8rem;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .history2 {
-    font-size: 0.9rem;
-  }
   .stukje {
-    font-size: 1.1rem;
+    font-size: .7rem;
   }
 }
 
@@ -199,7 +195,7 @@
 }
 
 .eredivisie65 {
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 
@@ -211,22 +207,19 @@
 
 @media only screen and (max-width: 850px) {
   .eredivisie65 {
-    width: 80%;
     height: auto;
+     width: 60%;
   }
-}
-
-@media only screen and (max-width: 850px) {
   .ere65 {
     margin-right: 4%;
   }
 }
 
+
 @media only screen and (max-width: 600px) {
   .eredivisie65 {
-    width: 60%;
     height: auto;
-    margin-left: 24%;
+    margin-left: 44%;
   }
 }
 
@@ -239,28 +232,101 @@
 
 @media only screen and (max-width: 400px) {
   .ere65 {
-    margin-right: 0;
+    margin-right: 4%;
+    width: 25%;
   }
 }
 
 .allmatches {
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 5%;
+  padding: 4% 0 0 0;
+  background-image: url("/home/bg_body.jpg");
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 18, 31, 1) 0%,
+    rgba(36, 79, 143, .7) 50%,
+    rgba(0, 18, 31, 1) 100%
+  ), url("/home/bg_body.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 5;
 }
 
-.stand {
-  width: 100%;
-  display: flex;
+@media only screen and (max-width: 1000px) {
+  .allmatches {
+      padding: 8% 0 0 0;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .allmatches {
+      padding: 10% 0 0 0;
+  }
+}
+
+.stand_home {
+ display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 4%;
+  max-width: 2000;
+  margin: 0 auto;
+  padding: 4% 2%;
+  background-image: url("/home/bg_body_2.jpg");
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 18, 31, 1) 0%,
+    rgba(36, 79, 143, .7) 50%,
+    rgba(0, 18, 31, 1) 100%
+  ), url("/home/bg_body_2.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 5;
+}
+
+@media only screen and (max-width: 1000px) {
+  .stand_home {
+    padding: 8% 2%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .stand_home {
+    padding: 6% 2%;
+  }
 }
 
 .dezeweek {
-  margin: 4% auto;
+  padding: 2% 2% 4% 2%;
+  margin: 0 auto;
+  height: auto;
+  background-image: url("/home/bg_body_ajax.jpg");
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 18, 31, 1) 0%,
+    rgba(36, 79, 143, .7) 50%,
+    rgba(0, 18, 31, 1) 100%
+  ), url("/home/bg_body_ajax.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 5;
+}
+
+@media only screen and (max-width: 1000px) {
+  .dezeweek {
+    padding: 6% 2%  8% 2%;
+  }
+}
+
+
+@media only screen and (max-width: 400px) {
+  .dezeweek {
+    padding: 6% 2% 7% 2%;
+  }
 }
 
 .derbystar {
@@ -275,15 +341,26 @@
 }
 
 .topScores1 {
-  max-width: 1155px;
-  margin: 4em auto;
-  height: auto;
-  margin-bottom: 2%;
-  padding: 0.8rem;
+  padding-top: 4%;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-bottom: 10%;
+  background-image: url("/home/bg_body.jpg");
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 18, 31, 1) 0%,
+    rgba(36, 79, 143, .75) 50%,
+    rgba(0, 18, 31, 1) 100%
+  ), url("/home/bg_body.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 5;
 }
 
 .top {
   width: 100%;
+  max-width:1155px;
   height: auto;
   display: flex;
   align-items: center;
@@ -297,8 +374,8 @@
   font-size: calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
   box-shadow: 0px 2px 8px rgb(0, 22, 54);
   border-radius: 0.6rem;
-  border: 2px solid rgb(196, 160, 0);
-  margin-bottom: 1.4rem;
+  border: 2px solid rgb(255, 187, 0);
+  margin: 0 auto;
 }
 
 .topScorers {
@@ -316,7 +393,6 @@
   box-shadow: 0px 2px 8px rgb(0 33 82);
   border-radius: 0.6rem;
   border: 2px solid rgb(101, 147, 216);
-  margin-bottom: 1.2rem;
 }
 
 .scorerInfo {
@@ -333,6 +409,12 @@
   margin: 2% 0 2% 0;
   display: flex;
   justify-content: space-between;
+}
+
+.scorers {
+  width: 100%;
+  max-width:1155px;
+  margin:0 auto;
 }
 
 .top3 {

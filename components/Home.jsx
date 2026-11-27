@@ -10,8 +10,8 @@ import goal4 from "../images/goal4.jpg";
 import goal_small from "../images/goal_small.jpg";
 import goal4_small from "../images/goal4_small.jpg";
 import Uitslagen from "./Uitslagen";
-import Stand from "./Stand";
-import Recent from "./Recent";
+import StandModule from "./StandModule";
+import RecentModule from "./RecentModule";
 import styles from "../styles/Home.module.css";
 import Clubs from "./Clubs";
 import Link from "next/link";
@@ -20,22 +20,15 @@ import ScrollToTop from "./ScrollToTop";
 import Image from "next/image";
 
 const Home = () => {
-
   const { topScorers, season } = useGlobalContext();
 
   return (
     <div className={styles.home}>
       <div className={styles.spacer}></div>
       <div className={styles.schaal}>
-        <Image
-          src={goal3}
-          
-          className={styles.schaalPic}
-          alt="goal"
-        />
+        <Image src={goal3} className={styles.schaalPic} alt="goal" />
         <Image
           src={goal3_small}
-          
           className={styles.schaalPic_small}
           alt="schaal"
         />
@@ -62,42 +55,33 @@ const Home = () => {
             <span className={styles.leeshiermeer}>Lees hier meer.......</span>
           </Link>
         </div>
-      </div>
 
-      <div className={styles.history2}>
-        <div className={styles.historyText}>
-          <div className={styles.stukje}>Geschiedenis</div>
-          Het ontstaan van de Eredivisie gaat ver terug in de tijd. De voorloper
-          van de Eredivisie was de kampioenscompetitie. Al sinds 1888 wordt er
-          officieus gestreden om het Nederlands kampioenschap. Met ingang van
-          het seizoen 1898/'99 werd dit officieel, waarna Concordia uit
-          Rotterdam zich als eerste landskampioen van Nederland mocht noemen. Na
-          de introductie van het betaald voetbal in 1954 werd twee jaar later de
-          Eredivisie officieel opgericht. Zodoende zijn sinds 1956 de sterkste
-          clubs van Nederland verenigd in één landelijke competitie.
-          <br />
-          <Link href="/history" style={{ textDecoration: "none" }}>
-            <span className={styles.leeshiermeer}>Lees hier meer.......</span>
-          </Link>
+        <div className={styles.history2}>
+          <div className={styles.historyText}>
+            <div className={styles.stukje}>Geschiedenis van de Eredivisie</div>
+            <Link href="/history" style={{ textDecoration: "none" }}>
+              <span className={styles.leeshiermeer}>Lees hier meer.......</span>
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className={styles.dezeweek}>
-        <Recent />
+        <RecentModule />
       </div>
 
       <div className={styles.borderMarker2}>
-        <Image src={goal}  className={styles.ballInGoal} alt="" />
-        <Image src={goal_small}  className={styles.ballInGoal_small} alt="" />
+        <Image src={goal} className={styles.ballInGoal} alt="" />
+        <Image src={goal_small} className={styles.ballInGoal_small} alt="" />
       </div>
 
-      <div className={styles.stand}>
-        <Stand />
+      <div className={styles.stand_home}>
+        <StandModule />
       </div>
 
       <div className={styles.borderMarker}>
-        <Image src={goal4}  className={styles.ballInGoal} alt="" />
-        <Image src={goal4_small}  className={styles.ballInGoal_small} alt="" />
+        <Image src={goal4} className={styles.ballInGoal} alt="" />
+        <Image src={goal4_small} className={styles.ballInGoal_small} alt="" />
       </div>
 
       <div className={styles.allmatches}>
@@ -105,13 +89,12 @@ const Home = () => {
       </div>
 
       <div className={styles.borderMarker}>
-        <Image src={goal2}  className={styles.ballInGoal} alt="" />
-        <Image src={goal2_small}  className={styles.ballInGoal_small} alt="" />
+        <Image src={goal2} className={styles.ballInGoal} alt="" />
+        <Image src={goal2_small} className={styles.ballInGoal_small} alt="" />
       </div>
 
-      <Clubs />
-
       <div className={styles.topScores1}>
+        <Clubs />
         <div className={styles.top}>Topscorers seizoen {season}</div>
         <div className={styles.scorers}>
           {topScorers &&

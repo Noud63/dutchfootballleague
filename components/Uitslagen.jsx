@@ -1,52 +1,14 @@
-
-"use client"
-import { useGlobalContext } from './Context'
-import Loader from './Loader';
-import Pagination from './Pagination'
-import styles from '../styles/AllMatches.module.css'
-import { usePathname } from 'next/navigation';
+"use client";
+import styles from "../styles/AllMatches.module.css";
+import AlleUitslagenModule from "./AlleUitslagenModule";
 
 const Uitslagen = () => {
+ 
+  return (
+    <div className={styles.container}>
+     <AlleUitslagenModule />
+    </div>
+  );
+};
 
-    const { state, currentDay, matchDays, setCurrentDay, setMatchDays } = useGlobalContext()
-
-    const path = usePathname();
-
-
-    return (
-
-        <div className={styles.container}>
-            {path === "/uitslagen" && <div className={styles.spacer}></div>}
-            <div className={styles.matches}>
-
-                <div className={styles.gamesnRound}>
-                    <div className={styles.alleWedstrijden}>Alle wedstrijden</div>
-                    < div className={styles.speelrondes} > Speelronde <div className={styles.circle}><div className={styles.dayNumber}>{currentDay}</div></div></ div>
-                </div>
-
-                {state.loading ? <Loader /> :
-
-                    matchDays?.map((game) => {
-                        const { homeTeam, awayTeam, score, id } = game
-
-                        return (
-                            <div className={styles.match} key={id}>
-                                <div className={styles.teams}>
-                                    <div className={styles.hometeam}>{homeTeam.name}</div>
-                                    <div className={styles.scores}>{score.fullTime.home} : {score.fullTime.away}</div>
-                                    <div className={styles.awayteam}>{awayTeam.name}</div>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            
-            <Pagination currentDay={currentDay} totalMatches={state.totalMatches} state={state} setCurrentDay={setCurrentDay} setMatchDays={setMatchDays} matchDays={matchDays}/>
-
-        </div>
-    )
-}
-
-export default Uitslagen
-
+export default Uitslagen;

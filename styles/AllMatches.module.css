@@ -1,32 +1,45 @@
 
 .container {
-  max-width: 1155px;
-  height: auto;
-  margin: 0px auto;
-  padding-top: 180px;
-  padding: 0 .8rem;
+  width: 100%;
+  max-width: 2000px; 
+  padding: 0 2%;
+  margin: 0 auto;
+  background-image: url("/home/bg_body_mirror.jpg");
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 18, 31, 1) 0%,
+    rgba(36, 79, 143, .75) 50%,
+    rgba(0, 18, 31, 1) 100%
+  ), url("/home/bg_body_mirror.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: 5;
 }
 
-.spacer{
-  height: 190px;
+.spacer {
+  height: 210px;
   width: 100%;
 }
 
 @media only screen and (max-width: 800px) {
   .spacer {
-     height: 150px;
+     height: 180px;
   }
 }
 
 @media only screen and (max-width: 400px) {
-  .spacer {
-     height: 120px;
+   .spacer {
+     height: 130px;
   }
 }
 
 
 .matches {
-  width: 100%;
+  width:100%;
+  max-width: 1155px;
+  margin: 0 auto;
+  padding-bottom: 4%;
   height: auto;
   display: flex;
   align-items: center;

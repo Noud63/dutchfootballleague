@@ -14,8 +14,6 @@ const ClubInfo = () => {
   const { state } = useGlobalContext();
   const { teams } = state;
 
-  console.log("teams:", teams); 
-
   const [players, setPlayers] = useState([]);
 
   useEffect(() => {
@@ -63,7 +61,8 @@ const ClubInfo = () => {
                     <div className={styles.infoProp}>
                       <span className={styles.teamLabel}>Coach : </span>
                       <span className={styles.teamName}>
-                       {shirtsArray.find((shirt) => shirt.id === team.id)?.naam || "Onbekend"}
+                        {shirtsArray.find((shirt) => shirt.id === team.id)
+                          ?.naam || "Onbekend"}
                       </span>
                     </div>
                     <div className={styles.infoProp}>
@@ -113,13 +112,7 @@ const ClubInfo = () => {
 
                 <div className={styles.allPlayers}>
                   <div className={styles.selectie}>Spelers selectie: </div>
-                  {/* {players && players?.[index] && (
-                    <div
-                      style={{ width: "100%", color: "white", height: "50px", fontSize:"16px", fontFamily:"Arial", paddingLeft: "15px"}}
-                    >
-                      Squad coming soon!
-                    </div>
-                  )} */}
+
                   <div className={styles.teamSelectionWrapper}>
                     <div className={styles.teamSelection}>
                       {players[index]?.map((player) => (
