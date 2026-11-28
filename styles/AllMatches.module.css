@@ -12,7 +12,7 @@
     rgba(0, 18, 31, 1) 100%
   ), url("/home/bg_body_recent.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   z-index: 5;
 }

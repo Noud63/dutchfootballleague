@@ -353,8 +353,8 @@
     rgba(0, 18, 31, 1) 100%
   ), url("/home/bg_body_4.jpg");
   background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: cover;
+  background-position: left;
   z-index: 5;
 }
 

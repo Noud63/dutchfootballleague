@@ -16,7 +16,7 @@
     rgba(0, 18, 31, 1) 100%
   ), url("/home/bg_body_clubs.jpg");
   background-repeat: repeat;
-  background-size: contain;
+  background-size: center;
   background-position: top;
 }
 
